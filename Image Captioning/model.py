@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 <<<<<<< HEAD
+<<<<<<< HEAD
 import statistics
 import torchvision.models as models
 
@@ -66,6 +67,8 @@ class CNNtoRNN(nn.Module):
 
         return [vocabulary.itos[idx] for idx in result_caption]
 =======
+=======
+>>>>>>> fa4bbbfac6a7e86381269e5b4136e7b128809dc6
 import torchvision.models as models
 
 class EncoderCNN(nn.Module):
@@ -112,5 +115,9 @@ class CNNtoRNN(nn.Module):
   def forward(self, images, captions):
     features = self.encoderCNN(images)
     outputs = self.decoderRNN(features, captions)
+<<<<<<< HEAD
+    return outputs
+>>>>>>> fa4bbbfac6a7e86381269e5b4136e7b128809dc6
+=======
     return outputs
 >>>>>>> fa4bbbfac6a7e86381269e5b4136e7b128809dc6
