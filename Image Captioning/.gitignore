@@ -1,0 +1,8 @@
+__pycache__
+flickr8k
+runs
+*.dmg
+*.iso
+*.tar
+*.zip
+*.gz

@@ -10,9 +10,9 @@ dataset
 
 'short_sleeved_shirt', 'long_sleeved_shirt', 'short_sleeved_outwear', 'long_sleeved_outwear', 'vest', 'sling', 'shorts', 'trousers', 'skirt', 'short_sleeved_dress', 'long_sleeved_dress', 'vest_dress', 'sling_dress'
 
-1.	train.zip (10 GB)
+1.	train.zip (10 GB) 1,91,961장
 
-2.	validation.zip (2 GB)
+2.	validation.zip (2 GB) 32,153장
 
 train
 -----
@@ -23,8 +23,11 @@ I used [Mask-RCNN]('https://arxiv.org/abs/1703.06870').
 
 I'll use use YOLO and Deeplabs model later.
 
--	10epochs ![img](https://ifh.cc/g/ERv8iO.jpg)
--	100epochs ![img](https://ifh.cc/g/afN103.jpg)
+-	10epochs 
+<img src="https://ifh.cc/g/ERv8iO.jpg" width="300" height="300">
+
+-	100epochs 
+<img src="https://ifh.cc/g/afN103.jpg" width="300" height="300">
 
 Description
 -----------
