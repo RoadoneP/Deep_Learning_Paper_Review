@@ -35,7 +35,7 @@ class Vocabulary:
     def build_vocabulary(self, sentence_list):
         frequencies = {}
         idx = 4
-
+        # frequencies에 단어 넣기
         for sentence in sentence_list:
             for word in self.tokenizer_eng(sentence):
                 if word not in frequencies:
@@ -60,13 +60,13 @@ class Vocabulary:
 
 class FlickrDataset(Dataset):
     def __init__(self, root_dir, captions_file, transform=None, freq_threshold=5):
-        self.root_dir = root_dir
-        self.df = pd.read_csv(captions_file)
-        self.transform = transform
+        self.root_dir = root_dir # 이미지가 존재하는 경로
+        self.df = pd.read_csv(captions_file) #파일 읽기
+        self.transform = transform 
 
         # Get img, caption columns
-        self.imgs = self.df["image"]
-        self.captions = self.df["caption"]
+        self.imgs = self.df["image"] # 이미지 정보를 담을 리스트
+        self.captions = self.df["caption"] #캡션의 정보를 담을 리스트
 
         # Initialize vocabulary and build vocab
         self.vocab = Vocabulary(freq_threshold)
@@ -75,6 +75,7 @@ class FlickrDataset(Dataset):
     def __len__(self):
         return len(self.df)
 
+    # 이미지와 캡션을 하나씩 꺼내는 메서드
     def __getitem__(self, index):
         caption = self.captions[index]
         img_id = self.imgs[index]
@@ -82,7 +83,7 @@ class FlickrDataset(Dataset):
 
         if self.transform is not None:
             img = self.transform(img)
-
+        # 문자열을 토큰 형태로 바꾸기
         numericalized_caption = [self.vocab.stoi["<SOS>"]]
         numericalized_caption += self.vocab.numericalize(caption)
         numericalized_caption.append(self.vocab.stoi["<EOS>"])
@@ -90,6 +91,7 @@ class FlickrDataset(Dataset):
         return img, torch.tensor(numericalized_caption)
 
 
+# 이미지와 캡션(caption)으로 구성된 튜플을 배치(batch)로 만들기
 class MyCollate:
     def __init__(self, pad_idx):
         self.pad_idx = pad_idx
