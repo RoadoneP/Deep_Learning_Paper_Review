@@ -90,7 +90,7 @@ class DecoderRNN(nn.Module):
                 top_k_scores, top_k_words = scores.view(-1).topk(k, dim=0)  # (s)
 
             # Convert unrolled indices to actual indices of scores
-            prev_word_inds = top_k_words / vocab_size  # (s)
+            prev_word_inds = top_k_words // vocab_size  # (s)
             next_word_inds = top_k_words % vocab_size  # (s)
 
             # Add new words to sequences

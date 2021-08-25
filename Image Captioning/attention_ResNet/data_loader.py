@@ -9,7 +9,6 @@ from PIL import Image
 from build_vocab import Vocabulary, Flickr8k
 
 
-
 class Flickr8kTrainDataset(data.Dataset):
 
     def __init__(self, image_dir, caption_path, split_path, vocab, transform=None):
