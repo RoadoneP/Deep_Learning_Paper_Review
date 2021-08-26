@@ -10,7 +10,7 @@ from PIL import Image
 
 
 
-images = ['./test_examples/boat.jpg', './test_examples/bus.jpg','./test_examples/child.jpg','./test_examples/dog.jpg','./test_examples/horse.jpg']
+images = ['./test_examples/me.jpg', './test_examples/boat.jpg', './test_examples/bus.jpg','./test_examples/child.jpg','./test_examples/dog.jpg','./test_examples/horse.jpg']
 ENCODER_PATH = './flickr8k_models/encoder-10-558.ckpt'
 DECODER_PATH = './flickr8k_models/decoder-10-558.ckpt'
 VOCAB_PATH = './data/flickr8k_vocab.pkl'

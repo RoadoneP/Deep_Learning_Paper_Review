@@ -11,7 +11,6 @@ class EncoderCNN(nn.Module):
         self.inception = models.inception_v3(pretrained=True, aux_logits=False)
         self.inception.fc = nn.Linear(self.inception.fc.in_features, embed_size)
         self.relu = nn.ReLU()
-        self.times = []
         self.dropout = nn.Dropout(0.5)
 
     def forward(self, images):

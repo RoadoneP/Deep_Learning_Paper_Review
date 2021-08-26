@@ -9,7 +9,7 @@ from build_vocab import Vocabulary
 from model import EncoderCNN, DecoderRNNWithAttention
 from PIL import Image
 
-images = ['./test_examples/boat.jpg', './test_examples/bus.jpg','./test_examples/child.jpg','./test_examples/dog.jpg','./test_examples/horse.jpg']
+images = ['./test_examples/me.jpg','./test_examples/boat.jpg', './test_examples/bus.jpg','./test_examples/child.jpg','./test_examples/dog.jpg','./test_examples/horse.jpg']
 # Device configuration
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 print(device)
