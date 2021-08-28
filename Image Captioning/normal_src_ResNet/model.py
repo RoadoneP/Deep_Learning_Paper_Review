@@ -103,7 +103,7 @@ class DecoderRNN(nn.Module):
             incomplete_inds = [ind for ind, next_word in enumerate(next_word_inds) if
                                next_word != vocab('<end>')]
             complete_inds = list(set(range(len(next_word_inds))) - set(incomplete_inds))
-
+            
             # Set aside complete sequences
             if len(complete_inds) > 0:
                 complete_seqs.extend(seqs[complete_inds].tolist())
@@ -123,9 +123,10 @@ class DecoderRNN(nn.Module):
             if step > self.max_seg_length:
                 break
             step += 1
+            
 
         i = complete_seqs_scores.index(max(complete_seqs_scores))
         seq = complete_seqs[i]
+        
         return [seq]
     
-        return complete_seqs
