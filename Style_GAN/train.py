@@ -39,7 +39,7 @@ n_show_loss       = 360
 step              = 1 # Train from (8 * 8)
 max_step          = 7
 style_mixing      = [] # Waiting to implement
-image_folder_path = './dataset/'
+image_folder_path = './dataset/test/'
 save_folder_path  = './results/'
 
 low_steps         = [0, 1, 2]

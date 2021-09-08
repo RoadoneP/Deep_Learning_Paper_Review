@@ -7,7 +7,7 @@ from PIL import Image
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms, utils
 
-image_folder_path = './dataset/'
+image_folder_path = './dataset/test/'
 
 def gain_sample(dataset, batch_size, image_size=4):
     transform = transforms.Compose([
