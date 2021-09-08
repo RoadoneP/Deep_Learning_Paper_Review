@@ -85,9 +85,13 @@ Results
 
 **Benign** - images : 300 - Batch size : 32 - epoch : 400 - G loss : 8.5 - D loss : 0.2 - output size : 64 x 64
 
-<img src = './image/Real_Benign.jpg' height = '310px'><img src = '/image/Fake_Benign.jpg' height = '300px'>
+<img src = './image/Real_Benign.jpg' height = '310px'><img src = './image/Fake_Benign.jpg' height = '300px'>
 
-**malignant** - G loss : 7.13 - D loss : 0.15<img src = './image/Fake_malignant.jpg' height = '310px'><img src = './image/real_malignant.jpg' height = '300px'>
+**malignant** 
+- G loss : 7.13 
+- D loss : 0.15
+
+<img src = './image/Fake_malignant.jpg' height = '310px'><img src = './image/Real_malignant.jpg' height = '300px'>
 
 ### 128 x 128
 
@@ -101,11 +105,20 @@ DCGAN 256 x 256 generation의 한계
 RelativisticGAN with Mode Collapse 256 x 256
 --------------------------------------------
 
-**Benign** - Train : 1440 images - Batch size : 32 - epoch : 5 (5000iter) - G loss : 6.5 - D loss : 0.1 - output size : 256 x 256 ![Benign_size_256](/image/Benign_size_256.png)
+**Benign** 
+- Train : 1440 images 
+- Batch size : 32 
+- epoch : 5 (5000iter)
+- G loss : 6.5 
+- D loss : 0.1 
+- output size : 256 x 256 
+
+![Benign_size_256](./image/Benign_size_256.png)
 
 which is fake~?
 
-**malignant** - Train : 1440 images - Batch size : 32 - epoch : 5 (5000iter) - G loss : 6.5 - D loss : 0.1 - output size : 256 x 256 ![Benign_size_256](/image/malignant_size_256.png)
+**malignant**  
+![Benign_size_256](./image/malignant_size_256.png)
 
 Reference
 ---------
