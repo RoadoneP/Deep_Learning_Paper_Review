@@ -44,11 +44,12 @@ Usage
 ### train
 
 -	python main.py --phase train --dataset benign --Ra True --gan_type dragan
+-	python main.py --phase train --dataset malignant --Ra True --gan_type dragan
 
 ### test
 
 -	python main.py --phase test --dataset benign --Ra True --gan_type dragan
-
+-	python main.py --phase test --dataset malignant --Ra True --gan_type dragan
 Summary
 -------
 
