@@ -7,7 +7,7 @@ def parse_args():
     desc = "Tensorflow implementation of Relativistic GAN"
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument('--phase', type=str, default='train', help='train or test ?')
-    parser.add_argument('--dataset', type=str, default='celebA', help='[mnist / cifar10 / celebA / your dataset]')
+    parser.add_argument('--dataset', type=str, default='benign', help='[benign / malignant]')
 
 
     parser.add_argument('--epoch', type=int, default=20, help='The number of epochs to run')

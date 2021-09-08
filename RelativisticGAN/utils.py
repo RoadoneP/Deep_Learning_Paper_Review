@@ -1,4 +1,5 @@
-import scipy.misc
+#import scipy.misc
+import imageio
 import numpy as np
 import os
 from glob import glob
@@ -26,53 +27,8 @@ class ImageData:
         return img
 
 
-def load_mnist(size=64):
-    (train_data, train_labels), (test_data, test_labels) = mnist.load_data()
-    train_data = normalize(train_data)
-    test_data = normalize(test_data)
-
-    x = np.concatenate((train_data, test_data), axis=0)
-    # y = np.concatenate((train_labels, test_labels), axis=0).astype(np.int)
-
-    seed = 777
-    np.random.seed(seed)
-    np.random.shuffle(x)
-    # np.random.seed(seed)
-    # np.random.shuffle(y)
-    # x = np.expand_dims(x, axis=-1)
-
-    x = np.asarray([scipy.misc.imresize(x_img, [size, size]) for x_img in x])
-    x = np.expand_dims(x, axis=-1)
-    return x
-
-def load_cifar10(size=64) :
-    (train_data, train_labels), (test_data, test_labels) = cifar10.load_data()
-    train_data = normalize(train_data)
-    test_data = normalize(test_data)
-
-    x = np.concatenate((train_data, test_data), axis=0)
-    # y = np.concatenate((train_labels, test_labels), axis=0).astype(np.int)
-
-    seed = 777
-    np.random.seed(seed)
-    np.random.shuffle(x)
-    # np.random.seed(seed)
-    # np.random.shuffle(y)
-
-    x = np.asarray([scipy.misc.imresize(x_img, [size, size]) for x_img in x])
-
-    return x
-
 def load_data(dataset_name, size=64) :
-    if dataset_name == 'mnist' :
-        x = load_mnist(size)
-
-    elif dataset_name == 'cifar10' :
-        x = load_cifar10(size)
-
-    else :
-        x = glob(os.path.join("./dataset", dataset_name, '*.*'))
-
+    x = glob(os.path.join("./dataset", dataset_name, '*.*'))
     return x
 
 
@@ -110,7 +66,8 @@ def merge(images, size):
 
 def imsave(images, size, path):
     # image = np.squeeze(merge(images, size)) # 채널이 1인거 제거 ?
-    return scipy.misc.imsave(path, merge(images, size))
+    #return scipy.misc.imsave(path, merge(images, size))
+    return imageio.imwrite(path, merge(images, size))
 
 
 def inverse_transform(images):
