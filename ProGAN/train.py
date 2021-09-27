@@ -98,12 +98,14 @@ def train_fn(critic, gen,loader, dataset,step, alpha, opt_critic, opt_gen, tenso
                 fixed_fakes.detach(),
                 tensorboard_step,
             )
-            generate_examples(gen, step, truncation=0.7, n=5)
+            if tensorboard_step%100 == 0:
+              generate_examples(gen, step, tensorboard_step, truncation=0.7, n=3)
             tensorboard_step += 1
 
         loop.set_postfix(
             gp=gp.item(),
             loss_critic=loss_critic.item(),
+            loss_gen =loss_gen.item(),
         )
 
     return tensorboard_step, alpha
@@ -166,7 +168,7 @@ def main():
                 scaler_gen,
                 scaler_critic,
             )
-            if config.SAVE_MODEL:
+            if config.SAVE_MODEL and tensorboard_step % 10 == 0:
                 save_checkpoint(gen, opt_gen, filename=config.CHECKPOINT_GEN)
                 save_checkpoint(critic, opt_critic, filename=config.CHECKPOINT_CRITIC)
 
